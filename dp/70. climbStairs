@@ -1,3 +1,6 @@
+#Time and space complexities: O(n)
+#recursion + memoization
+
 class Solution:
     def helper(self, n: int, memo: [int]) -> int:
         if memo[n]!=None:
