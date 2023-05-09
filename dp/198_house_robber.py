@@ -1,5 +1,5 @@
 class Solution:
-    def robHelper(self, i, nums, memo) -> int:
+    def robHelper(self, i: int, nums: List[int], memo: List[int]) -> int:
         if i==len(nums)-1:
             return nums[i]
         elif i>len(nums)-1:
