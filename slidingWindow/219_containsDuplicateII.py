@@ -1,10 +1,14 @@
 class Solution:
-    def findMaxAverage(self, nums: List[int], k: int) -> float:
-        temp_mean = mean(nums[:k])
-        max_mean = mean(nums[:k])
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        #iterate over array, adding onto the hash table *the most recent*      index if the test fails && its already there, otherwise continue
         n = len(nums)
+        hash_table = {}
 
-        for i in range(n-k):
-            temp_mean = temp_mean+(nums[i+k]-nums[i])/k
-            max_mean = max(max_mean, temp_mean)
-        return max_mean
+        for j in range(n):
+            if nums[j] in hash_table:
+                i = hash_table[nums[j]]
+                if abs(i - j)<=k:
+                    return True
+            hash_table[nums[j]] = j
+        return False
+
